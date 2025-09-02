@@ -6,9 +6,12 @@ set -e
 
 : "${ODOO_ADMIN_PASSWORD:?Debes definir ODOO_ADMIN_PASSWORD en Railway}"
 
+# Reemplaza placeholder en odoo.conf con el valor real
+sed -i "s|\${ODOO_ADMIN_PASSWORD}|${ODOO_ADMIN_PASSWORD}|g" /etc/odoo/odoo.conf
+
 exec odoo -c /etc/odoo/odoo.conf \
   --db_host="${PGHOST}" \
   --db_port="${PGPORT}" \
   --db_user="${PGUSER}" \
-  --db_password="${PGPASSWORD}" \
-  --admin_passwd="${ODOO_ADMIN_PASSWORD}"
+  --db_password="${PGPASSWORD}"
+

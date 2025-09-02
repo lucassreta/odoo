@@ -20,5 +20,5 @@ exec odoo \
     --db_port="${PGPORT}" \
     --db_user="${PGUSER}" \
     --db_password="${PGPASSWORD}" \
-    --ddatabase="${PGDATABASE}"
+    --database="${PGDATABASE}"
 

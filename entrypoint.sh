@@ -11,5 +11,4 @@ exec odoo -c /etc/odoo/odoo.conf \
   --db_port="${PGPORT}" \
   --db_user="${PGUSER}" \
   --db_password="${PGPASSWORD}" \
-  --db_name="${PGDATABASE}" \
   --admin_passwd="${ODOO_ADMIN_PASSWORD}"

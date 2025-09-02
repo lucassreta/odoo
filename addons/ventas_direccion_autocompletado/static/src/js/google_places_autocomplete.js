@@ -86,7 +86,7 @@ async function setupGooglePlacesField(input) {
         });
 
         // Opcional: Restringir a un país específico (ej: Argentina)
-        // autocomplete.setComponentRestrictions({'country': ['ar']});
+        autocomplete.setComponentRestrictions({'country': ['ar']});
 
         // Manejar selección de lugar
         autocomplete.addListener('place_changed', () => {

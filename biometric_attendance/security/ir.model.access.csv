@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biometric_template_user,biometric.template.user,model_biometric_template,base.group_user,1,0,0,0
+access_biometric_template_manager,biometric.template.manager,model_biometric_template,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_attendance_kiosk_user,attendance.kiosk.user,model_attendance_kiosk,base.group_user,1,0,0,0
+access_attendance_kiosk_manager,attendance.kiosk.manager,model_attendance_kiosk,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_register_face_wizard_user,register.face.wizard.user,model_register_face_wizard,base.group_user,1,1,1,1
+access_register_face_wizard_manager,register.face.wizard.manager,model_register_face_wizard,hr_attendance.group_hr_attendance_manager,1,1,1,1

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template principal del kiosco -->
+    <template id="kiosk_page" name="Kiosco Biométrico">
+        <html>
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>Kiosco de Asistencia Biométrica</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+            <link href="/biometric_attendance/static/src/css/kiosk_frontend.css" rel="stylesheet"/>
+        </head>
+        <body class="kiosk_fullscreen">
+            <div id="kiosk_app">
+                <!-- Loading inicial -->
+                <div class="kiosk_loader" id="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando sistema biométrico...</p>
+                </div>
+                
+                <!-- Aplicación principal -->
+                <div id="main_app" style="display: none;">
+                    <!-- Header -->
+                    <header class="kiosk_header">
+                        <h1><i class="fas fa-user-check"></i> Sistema de Asistencia Biométrica</h1>
+                        <div class="company_info">
+                            <span t-esc="company.name"/>
+                        </div>
+                        <div class="kiosk_clock" id="kiosk_clock"></div>
+                    </header>
+                    
+                    <!-- Contenido principal -->
+                    <main class="kiosk_container">
+                        <!-- Sección de cámara -->
+                        <div class="camera_section">
+                            <div class="camera_frame">
+                                <video></video>
+                                <canvas id="canvas" style="display: none;"></canvas>
+                                <div class="face_overlay" id="face_overlay"></div>
+                            </div>
+                            
+                            <div class="camera_controls">
+                                <button type="button" class="btn btn-success btn-lg" id="start_camera">
+                                    <i class="fas fa-camera"></i> Iniciar Cámara
+                                </button>
+                                <button type="button" class="btn btn-primary btn-lg" id="capture_face" style="display: none;">
+                                    <i class="fas fa-user-plus"></i> Registrar Asistencia
+                                </button>
+                                <button type="button" class="btn btn-warning" id="reset_camera" style="display: none;">
+                                    <i class="fas fa-redo"></i> Reiniciar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Sección de información -->
+                        <div class="info_section">
+                            <!-- Estado del reconocimiento -->
+                            <div id="recognition_status" class="status_display status_ready">
+                                <i class="fas fa-clock"></i>
+                                <span>Listo para reconocimiento</span>
+                            </div>
+                            
+                            <!-- Información del empleado -->
+                            <div id="employee_info" class="employee_display" style="display: none;">
+                                <div class="employee_photo" id="employee_photo"></div>
+                                <div class="employee_details">
+                                    <h3 class="employee_name" id="employee_name"></h3>
+                                    <p class="employee_dept" id="employee_dept"></p>
+                                    <div class="attendance_action" id="attendance_action"></div>
+                                    <p class="attendance_time" id="attendance_time"></p>
+                                    <div class="confidence_score" id="confidence_score"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Estadísticas del día -->
+                            <div class="daily_stats" id="daily_stats">
+                                <h4><i class="fas fa-chart-bar"></i> Estadísticas del Día</h4>
+                                <div class="stats_grid">
+                                    <div class="stat_item">
+                                        <span class="stat_number" id="total_attendances">0</span>
+                                        <span class="stat_label">Asistencias</span>
+                                    </div>
+                                    <div class="stat_item">
+                                        <span class="stat_number" id="unique_employees">0</span>
+                                        <span class="stat_label">Empleados</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    
+                    <!-- Footer -->
+                    <footer class="kiosk_footer">
+                        <p>© <span t-esc="company.name"/> - Sistema de Asistencia Biométrica v1.0</p>
+                        <div class="admin_access">
+                            <a href="/web" target="_blank" class="admin_link">
+                                <i class="fas fa-cog"></i> Acceso Administrativo
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- Scripts -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/face-api.js/0.22.2/face-api.min.js"></script>
+            <script src="/biometric_attendance/static/src/js/kiosk_app.js"></script>
+        </body>
+        </html>
+    </template>
+    
+    <!-- Template de registro -->
+    <template id="registration_page" name="Registro Facial">
+        <html>
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>Registro Facial - Empleado</title>
+            <link href="/biometric_attendance/static/src/css/kiosk_frontend.css" rel="stylesheet"/>
+        </head>
+        <body>
+            <div class="registration_container">
+                <h2>Registro de Reconocimiento Facial</h2>
+                <div id="registration_app"></div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/face-api.js/0.22.2/face-api.min.js"></script>
+            <script src="/biometric_attendance/static/src/js/face_registration.js"></script>
+        </body>
+        </html>
+    </template>
+</odoo>

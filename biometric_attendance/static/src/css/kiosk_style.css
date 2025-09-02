@@ -1,0 +1,236 @@
+.o_kiosk_form {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.kiosk_header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+}
+
+.kiosk_header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.kiosk_clock {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.kiosk_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 30px;
+}
+
+.camera_section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 700px;
+}
+
+#camera_container {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #f8f9fa;
+}
+
+.camera_controls {
+    text-align: center;
+    padding: 20px;
+}
+
+.camera_controls .btn {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.camera_controls .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.info_section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    min-width: 350px;
+    max-width: 400px;
+}
+
+.status_display {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.status_ready {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.status_success {
+    background: linear-gradient(135deg, #56ab2f, #a8e6cf);
+    color: white;
+}
+
+.status_warning {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.status_error {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+}
+
+.status_info {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+}
+
+.employee_display {
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.employee_photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #e9ecef;
+    margin: 0 auto 20px;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.employee_name {
+    font-size: 1.5rem;
+    color: #2d3436;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.attendance_action {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.attendance_action.check_in {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+}
+
+.attendance_action.check_out {
+    background: linear-gradient(135deg, #e17055, #fdcb6e);
+    color: white;
+}
+
+.attendance_time {
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.admin_section {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.admin_section .btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .kiosk_container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .camera_section, .info_section {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .kiosk_header h1 {
+        font-size: 2rem;
+    }
+}
+/* Estilos para botones del kiosco */
+.kiosk-button {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    transition: all 0.15s ease-in-out;
+}
+
+.kiosk-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.kiosk-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.kiosk-button:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
